@@ -7,7 +7,7 @@ export default function newCard({
   ProjectDescription,
   ProjectImage,
   ProjectLink,
-  ProjectStatus,
+  // ProjectStatus,
 }: any) {
   return (
     <Link
