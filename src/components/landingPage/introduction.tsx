@@ -1,6 +1,6 @@
 import React from "react";
 import { MainContainer } from "@/components/container/containers";
-import Header from "../../components/layout/header";
+import Header from "../layout/header";
 import Socials from "@/components/socials/socials";
 import { Image as DatocmsImage } from "react-datocms";
 import {
