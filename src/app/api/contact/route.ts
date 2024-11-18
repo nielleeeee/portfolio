@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
   const { name, email, phoneNumber, message } = body;
 
   try {
-    const mail = await resend.emails.send({
+    await resend.emails.send({
       from: "Nielle Portfolio <onboarding@resend.dev>",
       to: "jandnllplz@gmail.com",
       subject: `Portfolio Inquiry: ${name} Interested in Collaborating`,
@@ -39,6 +39,7 @@ export async function POST(req: NextRequest) {
       }
     );
   } catch (error) {
+    console.error("Something went wrong while sending email:", error);
     return new Response(JSON.stringify({ message: "Could not send email." }), {
       status: 500,
       headers: {
