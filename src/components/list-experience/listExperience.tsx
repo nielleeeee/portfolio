@@ -1,6 +1,3 @@
-"use client";
-import React, { useState, useEffect } from "react";
-
 interface ListExperience {
   date: string;
   jobTitle: string;
