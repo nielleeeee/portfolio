@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from "tailwindcss";
+
+const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,7 +16,7 @@ module.exports = {
       screens: {
         sm: "480px",
         md: "768px",
-        lg: "976px",
+        lg: "1024px",
         xl: "1440px",
       },
       colors: {
@@ -28,5 +29,8 @@ module.exports = {
       },
     },
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("@tailwindcss/forms")],
 };
+
+export default config;
