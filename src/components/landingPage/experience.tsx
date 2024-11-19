@@ -34,8 +34,10 @@ export default async function Experience() {
   return (
     <section
       id="experience"
-      className="w-full h-auto bg-[url('/rainbow-vortex.png')] bg-no-repeat bg-center bg-fixed bg-cover py-20"
+      className="relative w-full h-auto bg-[url('/rainbow-vortex.png')] bg-no-repeat bg-center bg-fixed bg-cover py-20"
     >
+      <div className="absolute inset-0 bg-black opacity-30 z-10"></div>
+
       <MainContainer>
         <h2 className="w-full text-center text-white font-bold text-3xl mb-10">
           Education
