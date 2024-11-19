@@ -134,7 +134,7 @@ export default function ContactForm() {
           disabled={formik.isSubmitting}
           className="inline-block w-full rounded-lg disabled:bg-[#9b9b9b] bg-secondary px-5 py-3 font-medium text-white sm:w-auto"
         >
-          Send Enquiry
+          Send Inquiry
         </button>
       </div>
     </form>
