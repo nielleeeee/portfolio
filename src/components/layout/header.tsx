@@ -63,7 +63,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed w-full px-4 lg:px-8 z-30 flex flex-row justify-between py-5 gap-20 bg-transparent transition-all duration-300 ease-in-out ${
+      className={`fixed w-full px-4 lg:px-8 z-30 flex flex-row justify-between py-5 gap-20 transition-all duration-300 ease-in-out ${
         scrolled ? "backdrop-blur-md bg-black/30 shadow" : "backdrop-blur-none"
       }`}
     >
