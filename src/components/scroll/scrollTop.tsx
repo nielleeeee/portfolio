@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function ScrollTop() {
   const [visible, setVisible] = useState(false);
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
-    const footerOffset = document.documentElement.scrollHeight - window.innerHeight - 160;
+    const footerOffset =
+      document.documentElement.scrollHeight - window.innerHeight - 160;
 
     if (scrollY > 200 && scrollY < footerOffset) {
       setVisible(true);
@@ -32,7 +33,7 @@ export default function ScrollTop() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-8 right-8 w-[45px] h-[45px] flex items-center justify-center cursor-pointer rounded-[50%] border-[none] bg-tertiary shadow-lg z-10 group transition-opacity duration-300
+      className={`fixed bottom-8 right-8 w-[45px] h-[45px] flex items-center justify-center cursor-pointer rounded-[50%] border-[none] bg-tertiary shadow-lg z-50 group transition-opacity duration-300
       ${visible ? "opcity-100" : "opacity-0 pointer-events-none"}
       `}
     >
