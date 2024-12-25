@@ -4,7 +4,6 @@ import About from "@/components/landingPage/about";
 import Projects from "@/components/landingPage/projects";
 import Experience from "@/components/landingPage/experience";
 import Contact from "@/components/landingPage/contact";
-import ScrollTop from "@/components/scroll/scrollTop";
 import { ToastContainer } from "react-toastify";
 import Certificate from "@/components/landingPage/certificate";
 
@@ -21,7 +20,6 @@ export default function Home() {
       <Experience />
       <Certificate />
       <Contact />
-      <ScrollTop />
     </main>
   );
 }
