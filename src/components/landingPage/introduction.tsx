@@ -1,6 +1,5 @@
 import React from "react";
 import { MainContainer } from "@/components/container/containers";
-import Header from "../layout/header";
 import Socials from "@/components/socials/socials";
 import { Image as DatocmsImage } from "react-datocms";
 import {
@@ -44,8 +43,7 @@ export default async function introduction() {
     >
       <TransitionFadeIn>
         <MainContainer>
-          <Header />
-          <div className="flex flex-col-reverse lg:flex-row gap-4 md:gap-8 py-[60px] justify-evenly items-center">
+          <div className="flex flex-col-reverse lg:flex-row gap-4 md:gap-8 py-[60px] pt-36 justify-evenly items-center">
             <TransitionMoveUp>
               <div className="flex flex-col gap-4">
                 <h1 className="text-4xl font-bold text-white text-center">
