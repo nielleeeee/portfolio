@@ -64,10 +64,11 @@ export default async function Experience() {
             <TransitionMoveRight>
               <Image
                 src="/illus-study.gif"
-                width={1000}
-                height={1000}
+                width={500}
+                height={500}
                 alt="educ"
-                className="w-full mix-blend-multiply"
+                className="w-full rounded-xl backdrop-blur-md"
+                unoptimized
               />
             </TransitionMoveRight>
           </div>
@@ -98,10 +99,11 @@ export default async function Experience() {
             <TransitionMoveRight>
               <Image
                 src="/illus-work.gif"
-                width={1000}
-                height={1000}
+                width={500}
+                height={500}
                 alt="educ"
-                className="w-full h-max mix-blend-multiply"
+                className="w-full rounded-xl backdrop-blur-md"
+                unoptimized
               />
             </TransitionMoveRight>
           </div>
