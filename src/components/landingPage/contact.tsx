@@ -14,7 +14,7 @@ export default function Contact() {
         <TransitionMoveUp>
           <div className="mx-auto max-w-screen-xl py-16 sm:px-4 lg:px-6">
             <div className="grid grid-cols-1 gap-x-12 gap-y-6 lg:grid-cols-5 items-center">
-              <div className="lg:col-span-2 lg:py-12 text-white bg-white/10 backdrop-blur-xl px-6 py-6 rounded-lg">
+              <div className="lg:col-span-2 lg:py-12 text-white bg-black/50 backdrop-blur-xl px-6 py-6 rounded-lg">
                 <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
                 <p className="max-w-xl text-lg">
                   Whether you have questions, exciting projects, or
