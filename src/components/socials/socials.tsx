@@ -2,8 +2,6 @@ import React from "react";
 import Link from "next/link";
 
 export default function Socials() {
-  const rootUrl = process.env.ROOT_URL;
-
   return (
     <div className="flex justify-center items-center w-max bg-white shadow-[0px_0px_15px_#00000027] px-6 py-3 md:px-8 md:py-4 rounded-[5em]">
       <Link
@@ -109,7 +107,7 @@ export default function Socials() {
       </Link>
 
       <Link
-        href={`${rootUrl}/Jan%20Danielle%20Plaza%20Resume.pdf`}
+        href={`/Jan%20Danielle%20Plaza%20Resume.pdf`}
         download={"Jan Danielle Plaza Resume.pdf"}
         target="_blank"
         title="Download my resume"
