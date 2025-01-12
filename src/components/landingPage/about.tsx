@@ -31,6 +31,7 @@ export default async function About() {
               width={100}
               height={100}
               alt="About Gif"
+              unoptimized
               className="w-full sm:w-[75%] md:w-1/2 lg:w-1/3 rounded-[30px]"
             />
 
@@ -42,7 +43,7 @@ export default async function About() {
                   <span className="circle" aria-hidden="true">
                     <span className="icon arrow"></span>
                   </span>
-                  <span className="button-text">Learn More</span>
+                  <span className="button-text">View my projects</span>
                 </button>
               </Link>
             </div>
