@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 export function TransitionFadeIn({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
+      className="w-full"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -17,6 +18,7 @@ export function TransitionFadeIn({ children }: { children: React.ReactNode }) {
 export function TransitionMoveUp({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
+      className="w-full"
       initial={{ y: 20, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 0.3 }}
@@ -33,6 +35,7 @@ export function TransitionMoveLeft({
 }) {
   return (
     <motion.div
+      className="w-full"
       initial={{ x: 100, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 0.3 }}
@@ -49,6 +52,7 @@ export function TransitionMoveRight({
 }) {
   return (
     <motion.div
+      className="w-full"
       initial={{ x: -100, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 0.6 }}
