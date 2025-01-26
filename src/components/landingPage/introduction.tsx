@@ -49,7 +49,8 @@ export default async function introduction() {
                 <h1 className="text-4xl font-bold text-white text-center">
                   {title}
                 </h1>
-                <h2 className="text-xl font-medium text-white max-w-lg text-center">
+
+                <h2 className="text-xl font-medium text-white max-w-lg text-center mx-auto">
                   {subtitle}
                 </h2>
 
