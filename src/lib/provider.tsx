@@ -7,6 +7,9 @@ import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import { usePathname } from "next/navigation";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 export default function Provider({ children }: { children: React.ReactNode }) {
   const pathName = usePathname();
   const isStudioPath = pathName.startsWith("/studio");
