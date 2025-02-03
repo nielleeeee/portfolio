@@ -79,5 +79,12 @@ export const websiteSettingsType = defineType({
       type: "url",
       validation: (Rule) => Rule.required(),
     }),
+
+    defineField({
+      name: "footerDescription",
+      title: "Footer Description",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
   ],
 });
