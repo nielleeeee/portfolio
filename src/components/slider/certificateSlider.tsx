@@ -1,18 +1,16 @@
 "use client";
 
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Slider, { Settings } from "react-slick";
 import { Image as DatoImage } from "react-datocms";
 
 export default function CertificateSlider({ certificateSources }: any) {
-  const settings = {
+  const settings: Settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    swipeToSlide: true,
     autoplay: true,
     autoplaySpeed: 8000,
   };
