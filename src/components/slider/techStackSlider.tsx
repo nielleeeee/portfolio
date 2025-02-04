@@ -1,37 +1,55 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
-import Flicking from "@egjs/react-flicking";
-import "@egjs/react-flicking/dist/flicking.css";
-import { AutoPlay } from "@egjs/flicking-plugins";
+import Slider, { Settings } from "react-slick";
 
 export default function TechStackSlider({ allTechStacks }: any) {
-  const flickingPlugins = [
-    new AutoPlay({ duration: 2000, direction: "NEXT", stopOnHover: false }),
-  ];
+  const settings: Settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 8,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    arrows: false,
+    draggable: true,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+    swipeToSlide: true,
+    focusOnSelect: true,
+    className: "w-full",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 6,
+        },
+      },
+
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+    ],
+  };
 
   return (
-    <Flicking
-      plugins={flickingPlugins}
-      moveType="freeScroll"
-      align="center"
-      circular={true}
-      inputType={["touch", "mouse"]}
-      id="carousel-techstack"
-      className="w-full"
-    >
+    <Slider {...settings}>
       {allTechStacks.map((source: any, index: any) => (
-        <div key={index} className="panel px-2 sm:px-4 md:px-8">
+        <div key={index} className="cursor-pointer w-full p-2 md:p-6 mx-auto overflow-hidden">
           <Image
             src={`${source.logo.url}`}
             alt={`${source.logo.basename}`}
             height={100}
             width={100}
-            className="w-[50px] h-[50px] md:w-[100px] md:h-[100px] pointer-events-none"
+            draggable={false}
+            className="cursor-pointer mx-auto w-[60px] h-[60px] md:w-[120px] md:h-[120px]"
           />
         </div>
       ))}
-    </Flicking>
+    </Slider>
   );
 }
