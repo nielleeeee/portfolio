@@ -1,4 +1,3 @@
-import React from "react";
 import { MainContainer } from "@/components/container/containers";
 import { TransitionMoveUp } from "@/components/animation/transition";
 import TechStackSlider from "@/components/slider/techStackSlider";
@@ -26,16 +25,11 @@ export default async function TechStack() {
     >
       <TransitionMoveUp>
         <MainContainer>
-          <h2 className="w-full text-center text-secondary font-bold text-3xl mb-10 xl:mb-20">
+          <h2 className="w-full text-center text-secondary font-bold text-3xl mb-5 md:mb-10 xl:mb-20">
             Tech Stack
           </h2>
 
-          <div
-            id="logo-carousel"
-            className="cursor-pointer flex flex-row gap-8 pb-8"
-          >
-            <TechStackSlider allTechStacks={allTechStacks} />
-          </div>
+          <TechStackSlider allTechStacks={allTechStacks} />
         </MainContainer>
       </TransitionMoveUp>
     </section>
