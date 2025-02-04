@@ -31,6 +31,6 @@ jobs:
           tags: ghcr.io/${{ github.repository }}:latest
           build-args: |
             RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
-            NEXT_PUBLIC_DATOCMS_API_TOKEN=${{ secrets.NEXT_PUBLIC_DATOCMS_API_TOKEN }}
+            NEXT_DATOCMS_API_TOKEN=${{ secrets.NEXT_DATOCMS_API_TOKEN }}
             NEXT_PUBLIC_SANITY_PROJECT_ID=${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
             NEXT_PUBLIC_SANITY_DATASET=${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
