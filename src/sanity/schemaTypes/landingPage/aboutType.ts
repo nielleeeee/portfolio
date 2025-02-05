@@ -6,6 +6,21 @@ export const aboutType = defineType({
   type: "document",
   fields: [
     defineField({
+      name: "image",
+      title: "Image",
+      type: "array",
+      of: [
+        {
+          type: "image",
+          options: {
+            hotspot: true,
+          },
+        },
+      ],
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
       name: "description",
       title: "Description",
       type: "array",
