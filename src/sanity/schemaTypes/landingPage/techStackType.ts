@@ -6,6 +6,13 @@ export const techStackType = defineType({
   type: "document",
   fields: [
     defineField({
+      name: "title",
+      title: "Title",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
       name: "techStacks",
       title: "Tech Stacks",
       type: "array",
