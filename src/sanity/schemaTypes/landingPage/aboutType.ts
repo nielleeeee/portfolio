@@ -8,15 +8,7 @@ export const aboutType = defineType({
     defineField({
       name: "image",
       title: "Image",
-      type: "array",
-      of: [
-        {
-          type: "image",
-          options: {
-            hotspot: true,
-          },
-        },
-      ],
+      type: "image",
       validation: (Rule) => Rule.required(),
     }),
 
