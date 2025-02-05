@@ -23,8 +23,7 @@ export const heroType = defineType({
     defineField({
       name: "title",
       title: "Title",
-      type: "array",
-      of: [{ type: "block" }],
+      type: "string",
       validation: (Rule) => Rule.required(),
     }),
 
