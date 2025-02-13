@@ -12,7 +12,6 @@ export const websiteSettingsType = defineType({
       validation: (Rule) => Rule.required(),
     }),
 
-
     defineField({
       name: "title",
       title: "Title",
@@ -26,7 +25,6 @@ export const websiteSettingsType = defineType({
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
-    
 
     defineField({
       name: "email",
@@ -41,13 +39,13 @@ export const websiteSettingsType = defineType({
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
-    
+
     defineField({
       name: "resume",
       title: "Resume",
       type: "file",
       options: {
-        accept: '.pdf',
+        accept: ".pdf",
       },
       validation: (Rule) => Rule.required(),
     }),
@@ -84,6 +82,28 @@ export const websiteSettingsType = defineType({
       name: "footerDescription",
       title: "Footer Description",
       type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: "metaTitle",
+      title: "Meta Title",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: "metaDescription",
+      title: "Meta Description",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: "metaTags",
+      title: "Meta Tags",
+      type: "array",
+      of: [{ type: "string" }],
       validation: (Rule) => Rule.required(),
     }),
   ],
