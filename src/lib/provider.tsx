@@ -6,7 +6,9 @@ import ScrollTop from "@/components/scroll/scrollTop";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import { usePathname } from "next/navigation";
+import { ToastContainer } from "react-toastify";
 
+import "react-toastify/dist/ReactToastify.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -18,6 +20,7 @@ export default function Provider({ children }: { children: React.ReactNode }) {
     <>
       <Analytics />
       <SpeedInsights />
+      <ToastContainer />
 
       {!isStudioPath && <Header />}
       {children}
