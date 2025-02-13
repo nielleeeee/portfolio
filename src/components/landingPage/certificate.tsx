@@ -1,4 +1,3 @@
-import React from "react";
 import { TransitionMoveUp } from "@/components/animation/transition";
 import { MainContainer } from "@/components/container/containers";
 import CertificateSlider from "@/components/slider/certificateSlider";

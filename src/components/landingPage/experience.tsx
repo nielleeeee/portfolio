@@ -1,4 +1,3 @@
-import React from "react";
 import { MainContainer } from "@/components/container/containers";
 import ListExperience from "@/components/list-experience/listExperience";
 import Image from "next/image";

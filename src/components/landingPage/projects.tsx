@@ -1,4 +1,3 @@
-import React from "react";
 import { MainContainer } from "@/components/container/containers";
 import { TransitionMoveUp } from "@/components/animation/transition";
 import { performRequest } from "@/lib/datocms";

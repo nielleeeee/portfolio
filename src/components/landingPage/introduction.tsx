@@ -1,4 +1,3 @@
-import React from "react";
 import { MainContainer } from "@/components/container/containers";
 import Socials from "@/components/socials/socials";
 import { Image as DatocmsImage } from "react-datocms";

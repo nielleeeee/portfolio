@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import { MainContainer } from "@/components/container/containers";
 import { TransitionMoveUp } from "@/components/animation/transition";
