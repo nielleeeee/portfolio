@@ -1,0 +1,50 @@
+import { PortableTextBlock } from "@sanity/block-content-to-react";
+
+interface Image {
+  _type: "image";
+  asset: {
+    _ref: string;
+    _type: "reference";
+  };
+  hotspot?: boolean;
+  crop?: {
+    _type: "crop";
+    top: number;
+    bottom: number;
+    left: number;
+    right: number;
+  };
+}
+
+interface CTA {
+  name: string;
+  slug: {
+    _type: "slug";
+    current: string;
+  };
+}
+
+interface TechStack {
+  name: string;
+  logo: Image | string;
+}
+
+interface HeroSection {
+  _type: "heroSection";
+  image: Image | string;
+  title: string;
+  description: PortableTextBlock[];
+}
+
+interface AboutSection {
+  _type: "aboutSection";
+  image: Image | string;
+  description: PortableTextBlock[];
+  cta: CTA;
+}
+
+interface TechStackSection {
+  _type: "techStackSection";
+  title: string;
+  techStacks: TechStack[];
+}
