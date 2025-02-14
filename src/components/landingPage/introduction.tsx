@@ -1,39 +1,19 @@
 import { MainContainer } from "@/components/container/containers";
 import Socials from "@/components/socials/socials";
-import { Image as DatocmsImage } from "react-datocms";
+import Image from "next/image";
 import {
   TransitionFadeIn,
   TransitionMoveUp,
 } from "@/components/animation/transition";
-import { performRequest } from "@/lib/datocms";
+import { HeroSection } from "../../../type";
+import { PortableText } from "next-sanity";
 
-const PAGE_CONTENT_QUERY = `
-  query About {
-    introduction {
-      title
-      subtitle
-      media {
-        responsiveImage {
-          sizes
-          src
-          width
-          height
-          alt
-          title
-          base64
-        }
-      }
-    }
-  }`;
-
-export default async function introduction() {
-  const {
-    data: { introduction },
-  } = await performRequest({ query: PAGE_CONTENT_QUERY });
-
-  const title = introduction.title;
-  const subtitle = introduction.subtitle;
-  const media = introduction.media.responsiveImage;
+export default async function introduction({
+  heroSectionData,
+}: {
+  heroSectionData: HeroSection;
+}) {
+  const { title, description, image } = heroSectionData;
 
   return (
     <section
@@ -49,9 +29,9 @@ export default async function introduction() {
                   {title}
                 </h1>
 
-                <h2 className="text-xl font-medium text-white max-w-lg text-center mx-auto">
-                  {subtitle}
-                </h2>
+                <div className="text-xl font-medium text-white max-w-lg text-center mx-auto">
+                  <PortableText value={description} />
+                </div>
 
                 <div className="w-full flex items-center justify-center mt-10">
                   <Socials />
@@ -59,9 +39,12 @@ export default async function introduction() {
               </div>
             </TransitionMoveUp>
 
-            <DatocmsImage
-              data={media}
-              className="w-full !max-w-[360px] lg:!max-w-[460px] rounded-3xl"
+            <Image
+              src={image as string}
+              alt="Hero Image"
+              className="w-full max-w-[360px] lg:max-w-[460px] rounded-3xl"
+              height={500}
+              width={500}
             />
           </div>
         </MainContainer>
