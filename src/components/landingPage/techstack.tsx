@@ -1,22 +1,14 @@
 import { MainContainer } from "@/components/container/containers";
 import { TransitionMoveUp } from "@/components/animation/transition";
 import TechStackSlider from "@/components/slider/techStackSlider";
-import { performRequest } from "@/lib/datocms";
+import { TechStackSection } from "../../../type";
 
-const PAGE_CONTENT_QUERY = `
-  query Certificate {
-    allTechStacks {
-      logo {
-        url
-        basename
-      }
-    }
-  }`;
-
-export default async function TechStack() {
-  const {
-    data: { allTechStacks },
-  } = await performRequest({ query: PAGE_CONTENT_QUERY });
+export default async function TechStack({
+  techStackData,
+}: {
+  techStackData: TechStackSection;
+}) {
+  const { title, techStacks } = techStackData;
 
   return (
     <section
@@ -26,10 +18,10 @@ export default async function TechStack() {
       <TransitionMoveUp>
         <MainContainer>
           <h2 className="w-full text-center text-secondary font-bold text-3xl mb-5 md:mb-10 xl:mb-20">
-            Tech Stack
+            {title}
           </h2>
 
-          <TechStackSlider allTechStacks={allTechStacks} />
+          <TechStackSlider techStacks={techStacks} />
         </MainContainer>
       </TransitionMoveUp>
     </section>
