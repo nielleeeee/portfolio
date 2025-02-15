@@ -30,7 +30,7 @@ const PAGE_QUERY = `{
 }`;
 
 export default async function Home() {
-  const { heroSection, aboutSection } = await sanityFetch<any>({
+  const { heroSection, aboutSection, techStackSection } = await sanityFetch<any>({
     query: PAGE_QUERY,
   });
 
@@ -40,7 +40,7 @@ export default async function Home() {
 
       <About aboutSectionData={aboutSection[0]} />
 
-      <TechStack />
+      <TechStack techStackData={techStackSection[0]} />
 
       <Projects />
 
