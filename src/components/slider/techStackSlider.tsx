@@ -2,8 +2,13 @@
 
 import Image from "next/image";
 import Slider, { Settings } from "react-slick";
+import { TechStack } from "../../../type";
 
-export default function TechStackSlider({ allTechStacks }: any) {
+export default function TechStackSlider({
+  techStacks,
+}: {
+  techStacks: TechStack[];
+}) {
   const settings: Settings = {
     dots: false,
     infinite: true,
@@ -19,6 +24,7 @@ export default function TechStackSlider({ allTechStacks }: any) {
     swipeToSlide: true,
     focusOnSelect: true,
     className: "w-full",
+    centerMode: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -38,11 +44,14 @@ export default function TechStackSlider({ allTechStacks }: any) {
 
   return (
     <Slider {...settings}>
-      {allTechStacks.map((source: any, index: any) => (
-        <div key={index} className="cursor-pointer w-full p-2 md:p-6 mx-auto overflow-hidden">
+      {techStacks.map((techStack: TechStack, index: number) => (
+        <div
+          key={index}
+          className="cursor-pointer w-full p-2 md:p-6 mx-auto overflow-hidden"
+        >
           <Image
-            src={`${source.logo.url}`}
-            alt={`${source.logo.basename}`}
+            src={techStack.logo as string}
+            alt={techStack.name}
             height={100}
             width={100}
             draggable={false}
