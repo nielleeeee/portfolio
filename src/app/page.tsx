@@ -26,11 +26,37 @@ const PAGE_QUERY = `{
       name,
       "logo": logo.asset->url,
     }
+  },
+
+  "personalProjectSection": *[_type == "projectSection" && type == "personal"] | order(_createdAt asc) {
+    title,
+    description,
+    previewLink,
+    githubLink,
+    status,
+    type,
+    "image": image[].asset->url,
+  },
+
+  "workProjectSection": *[_type == "projectSection" && type == "work"] | order(_createdAt asc) {
+    title,
+    description,
+    previewLink,
+    githubLink,
+    status,
+    type,
+    "image": image[].asset->url,
   }
 }`;
 
 export default async function Home() {
-  const { heroSection, aboutSection, techStackSection } = await sanityFetch<any>({
+  const {
+    heroSection,
+    aboutSection,
+    techStackSection,
+    personalProjectSection,
+    workProjectSection,
+  } = await sanityFetch<any>({
     query: PAGE_QUERY,
   });
 
@@ -42,7 +68,10 @@ export default async function Home() {
 
       <TechStack techStackData={techStackSection[0]} />
 
-      <Projects />
+      <Projects
+        personalProjectData={personalProjectSection}
+        workProjectData={workProjectSection}
+      />
 
       <Experience />
 
