@@ -48,3 +48,14 @@ interface TechStackSection {
   title: string;
   techStacks: TechStack[];
 }
+
+export interface ProjectSection {
+  _type: 'projectSection';
+  title: string;
+  description: PortableTextBlock[];
+  previewLink?: string;
+  githubLink?: string;
+  status: 'active' | 'inactive' | 'inProgress' | 'onHold' | 'completed';
+  type: 'work' | 'personal' | 'other';
+  image: string[] | Image[];
+}
