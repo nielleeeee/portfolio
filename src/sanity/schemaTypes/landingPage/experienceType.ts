@@ -54,20 +54,6 @@ export const experienceType = defineType({
               of: [{ type: "block" }],
               validation: (Rule) => Rule.required(),
             }),
-
-            defineField({
-              name: "image",
-              title: "Image",
-              type: "array",
-              of: [
-                {
-                  type: "image",
-                  options: {
-                    hotspot: true,
-                  },
-                },
-              ],
-            }),
           ],
         },
       ],
