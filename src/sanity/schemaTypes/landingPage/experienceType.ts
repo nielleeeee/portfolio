@@ -6,6 +6,13 @@ export const experienceType = defineType({
   type: "document",
   fields: [
     defineField({
+      name: "title",
+      title: "Title",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
       name: "experienceList",
       title: "Experience List",
       type: "array",
@@ -18,14 +25,6 @@ export const experienceType = defineType({
               title: "Title",
               type: "string",
               description: "Job title or course",
-              validation: (Rule) => Rule.required(),
-            }),
-
-            defineField({
-              name: "role",
-              title: "Role",
-              type: "string",
-              description: "Job role or education level",
               validation: (Rule) => Rule.required(),
             }),
 
@@ -50,6 +49,8 @@ export const experienceType = defineType({
               name: "description",
               title: "Description",
               type: "array",
+              description:
+                "A description of the job or course. List of achievements.",
               of: [{ type: "block" }],
               validation: (Rule) => Rule.required(),
             }),
@@ -66,7 +67,6 @@ export const experienceType = defineType({
                   },
                 },
               ],
-              validation: (Rule) => Rule.required(),
             }),
           ],
         },
