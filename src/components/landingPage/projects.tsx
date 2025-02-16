@@ -1,55 +1,15 @@
 import { MainContainer } from "@/components/container/containers";
 import { TransitionMoveUp } from "@/components/animation/transition";
-import { performRequest } from "@/lib/datocms";
 import ProjectList from "@/components/list-project/projectList";
+import { ProjectSection } from "../../../type";
 
-const PAGE_CONTENT_QUERY = `
-query Project {
-  allPersonalProjects(orderBy: _createdAt_ASC) {
-    name
-    description
-    link
-    image {
-      responsiveImage {
-        srcSet
-        webpSrcSet
-        sizes
-        src
-        width
-        height
-        aspectRatio
-        alt
-        title
-        base64
-      }
-    }
-  }
-  allWorkProjects(orderBy: _createdAt_ASC) {
-    name
-    description
-    link
-    image {
-      responsiveImage {
-        srcSet
-        webpSrcSet
-        sizes
-        src
-        width
-        height
-        aspectRatio
-        alt
-        title
-        base64
-      }
-    }
-  }
-}`;
-
-export default async function Projects() {
-  const {
-    data: { allPersonalProjects, allWorkProjects },
-  } = await performRequest({ query: PAGE_CONTENT_QUERY });
-
+export default async function Projects({
+  personalProjectData,
+  workProjectData,
+}: {
+  personalProjectData: ProjectSection[];
+  workProjectData: ProjectSection[];
+}) {
   return (
     <section
       id="projects"
@@ -62,7 +22,7 @@ export default async function Projects() {
               Personal Projects
             </h2>
             <div className="w-full flex flex-col gap-4 md:gap-8">
-              <ProjectList projectList={allPersonalProjects} />
+              <ProjectList projectData={personalProjectData} />
             </div>
           </div>
         </TransitionMoveUp>
@@ -73,7 +33,7 @@ export default async function Projects() {
               Work Projects
             </h2>
             <div className="w-full flex flex-col gap-4 md:gap-8">
-              <ProjectList projectList={allWorkProjects} />
+              <ProjectList projectData={workProjectData} />
             </div>
           </div>
         </TransitionMoveUp>
