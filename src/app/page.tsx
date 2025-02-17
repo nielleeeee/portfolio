@@ -46,6 +46,16 @@ const PAGE_QUERY = `{
     status,
     type,
     "image": image[].asset->url,
+  },
+
+  "experienceSection": *[_type == "experienceSection"] {
+    title,
+    experienceList[] {
+      title,
+      organization,
+      date,
+      description
+    }
   }
 }`;
 
@@ -56,6 +66,7 @@ export default async function Home() {
     techStackSection,
     personalProjectSection,
     workProjectSection,
+    experienceSection,
   } = await sanityFetch<any>({
     query: PAGE_QUERY,
   });
@@ -73,7 +84,7 @@ export default async function Home() {
         workProjectData={workProjectSection}
       />
 
-      <Experience />
+      <Experience experienceData={experienceSection[0]} />
 
       <Certificate />
 
