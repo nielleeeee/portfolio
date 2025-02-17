@@ -59,3 +59,16 @@ export interface ProjectSection {
   type: 'work' | 'personal' | 'other';
   image: string[] | Image[];
 }
+
+interface ExperienceItem {
+  title: string;
+  organization: string;
+  date: string;
+  description: PortableTextBlock[];
+}
+
+export interface ExperienceSection {
+  _type: 'experienceSection';
+  title: string;
+  experienceList: ExperienceItem[];
+}
