@@ -6,6 +6,13 @@ export const certificateType = defineType({
   type: "document",
   fields: [
     defineField({
+      name: "title",
+      title: "Title",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
       name: "certificateList",
       title: "Certificate List",
       type: "array",
