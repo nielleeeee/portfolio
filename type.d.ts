@@ -72,3 +72,14 @@ export interface ExperienceSection {
   title: string;
   experienceList: ExperienceItem[];
 }
+
+interface CertificateItem {
+  name: string;
+  image: Image | string;
+}
+
+export interface CertificateSection {
+  _type: 'certificateSection';
+  title: string;
+  certificateList: CertificateItem[];
+}
