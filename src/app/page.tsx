@@ -56,6 +56,14 @@ const PAGE_QUERY = `{
       date,
       description
     }
+  },
+
+  "certificateSection": *[_type == "certificateSection"] {
+    title,
+    certificateList[] {
+      name,
+      "image": image.asset->url,
+    }
   }
 }`;
 
@@ -67,6 +75,7 @@ export default async function Home() {
     personalProjectSection,
     workProjectSection,
     experienceSection,
+    certificateSection,
   } = await sanityFetch<any>({
     query: PAGE_QUERY,
   });
@@ -86,7 +95,7 @@ export default async function Home() {
 
       <Experience experienceData={experienceSection[0]} />
 
-      <Certificate />
+      <Certificate certificateData={certificateSection[0]} />
 
       <Contact />
     </main>
