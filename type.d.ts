@@ -50,13 +50,13 @@ interface TechStackSection {
 }
 
 export interface ProjectSection {
-  _type: 'projectSection';
+  _type: "projectSection";
   title: string;
   description: PortableTextBlock[];
   previewLink?: string;
   githubLink?: string;
-  status: 'active' | 'inactive' | 'inProgress' | 'onHold' | 'completed';
-  type: 'work' | 'personal' | 'other';
+  status: "active" | "inactive" | "inProgress" | "onHold" | "completed";
+  type: "work" | "personal" | "other";
   image: string[] | Image[];
 }
 
@@ -67,8 +67,8 @@ interface ExperienceItem {
   description: PortableTextBlock[];
 }
 
-export interface ExperienceSection {
-  _type: 'experienceSection';
+interface ExperienceSection {
+  _type: "experienceSection";
   title: string;
   experienceList: ExperienceItem[];
 }
@@ -78,8 +78,14 @@ interface CertificateItem {
   image: Image | string;
 }
 
-export interface CertificateSection {
-  _type: 'certificateSection';
+interface CertificateSection {
+  _type: "certificateSection";
   title: string;
   certificateList: CertificateItem[];
+}
+
+interface ContactSection {
+  _type: "contactSection";
+  title: string;
+  description: PortableTextBlock[];
 }
