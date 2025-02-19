@@ -2,8 +2,31 @@ import Link from "next/link";
 import { MainContainer } from "@/components/container/containers";
 import { TransitionMoveUp } from "@/components/animation/transition";
 import ContactForm from "@/components/form/contactForm";
+import { PortableText, PortableTextComponents } from "next-sanity";
+import { ContactSection } from "../../../type";
 
-export default function Contact() {
+export default function Contact({
+  contactData,
+}: {
+  contactData: ContactSection;
+}) {
+  const { title, description } = contactData;
+
+  const portableTextComponents: PortableTextComponents = {
+    marks: {
+      link: ({ value, children }) => {
+        return (
+          <Link
+            href={`${value?.href}`}
+            className="text-primary cursor-pointer font-medium"
+          >
+            {children}
+          </Link>
+        );
+      },
+    },
+  };
+
   return (
     <section
       id="contact"
@@ -14,21 +37,10 @@ export default function Contact() {
           <div className="mx-auto max-w-screen-xl py-16 sm:px-4 lg:px-6">
             <div className="grid grid-cols-1 gap-x-12 gap-y-6 lg:grid-cols-5 items-center">
               <div className="lg:col-span-2 lg:py-12 text-white bg-black/50 backdrop-blur-xl px-6 py-6 rounded-lg">
-                <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
-                <p className="max-w-xl text-lg">
-                  Whether you have questions, exciting projects, or
-                  opportunities for collaboration, I&apos;d love to hear from
-                  you. Feel free to reach out using the form, or directly via
-                  this email{" "}
-                  <Link
-                    href="mailto:jandnllplz@gmail.com"
-                    className="text-orange-200 transition hover:text-secondary"
-                  >
-                    jandnllplz@gmail.com
-                  </Link>
-                  . I&apos;m always ready to discuss how we can work together to
-                  bring your ideas to life.
-                </p>
+                <h2 className="text-3xl font-bold mb-8">{title}</h2>
+                <div className="max-w-xl text-lg">
+                  <PortableText value={description} components={portableTextComponents} />
+                </div>
 
                 <div className="mt-8">
                   <ul className="flex flex-col gap-3">
