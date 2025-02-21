@@ -16,6 +16,14 @@ interface Image {
   };
 }
 
+interface File {
+  _type: "file";
+  asset: {
+    _ref: string;
+    _type: "reference";
+  };
+}
+
 interface CTA {
   name: string;
   slug: {
@@ -88,4 +96,22 @@ interface ContactSection {
   _type: "contactSection";
   title: string;
   description: PortableTextBlock[];
+}
+
+interface WebsiteSettings {
+  _type: "websiteSettings";
+  logo: Image | string;
+  title: string;
+  contactNumber: string;
+  email: string;
+  address: string;
+  resume: File | string;
+  facebook: string;
+  instagram: string;
+  github: string;
+  linkedin: string;
+  footerDescription: string;
+  metaTitle: string;
+  metaDescription: string;
+  metaTags: string[];
 }
