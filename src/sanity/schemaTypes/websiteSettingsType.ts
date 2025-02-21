@@ -13,6 +13,13 @@ export const websiteSettingsType = defineType({
     }),
 
     defineField({
+      name: "logoFooter",
+      title: "Logo Footer",
+      type: "image",
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
       name: "title",
       title: "Title",
       type: "string",
