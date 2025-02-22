@@ -2,28 +2,52 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Providers from "@/lib/provider";
+import { sanityFetch } from "@/sanity/lib/client";
+import { WebsiteSettings } from "../../type";
 
 const inter = Montserrat({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: {
-    template: "%s - Danielle Portfolio",
-    default: "Danielle Portfolio",
-  },
+const PAGE_QUERY = `{
+  "websiteSettings": *[_type == "websiteSettings"] {
+    title, 
+    metaTitle, 
+    metaDescription, 
+    metaTags,
+    footerDescription,
+    "logo": logo.asset->url,
+  }
+}`;
 
-  description: "Danielle Portfolio Website",
+export async function generateMetadata(): Promise<Metadata> {
+  const { websiteSettings } = await sanityFetch<any>({
+    query: PAGE_QUERY,
+  });
 
-  robots: {
-    index: true,
-    follow: true,
-    nocache: true,
-    googleBot: {
+  const { title, metaTitle, metaDescription, metaTags } =
+    websiteSettings[0] as WebsiteSettings;
+
+  return {
+    title: {
+      template: `%s - ${title || metaTitle || "Danielle Portfolio"}`,
+      default: title || metaTitle || "Danielle Portfolio",
+    },
+
+    description: metaDescription,
+
+    keywords: metaTags,
+
+    robots: {
       index: true,
       follow: true,
-      noimageindex: false,
+      nocache: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        noimageindex: false,
+      },
     },
-  },
-};
+  };
+}
 
 export default function RootLayout({
   children,
