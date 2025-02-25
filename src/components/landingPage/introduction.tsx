@@ -5,12 +5,14 @@ import {
   TransitionFadeIn,
   TransitionMoveUp,
 } from "@/components/animation/transition";
-import { HeroSection } from "../../../type";
+import { HeroSection, WebsiteSettings } from "../../../type";
 import { PortableText } from "next-sanity";
 
 export default async function introduction({
   heroSectionData,
+  websiteSettings,
 }: {
+  websiteSettings: WebsiteSettings;
   heroSectionData: HeroSection;
 }) {
   const { title, description, image } = heroSectionData;
@@ -34,7 +36,7 @@ export default async function introduction({
                 </div>
 
                 <div className="w-full flex items-center justify-center mt-10">
-                  <Socials />
+                  <Socials websiteSettings={websiteSettings} />
                 </div>
               </div>
             </TransitionMoveUp>
