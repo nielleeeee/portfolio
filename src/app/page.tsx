@@ -71,19 +71,17 @@ const PAGE_QUERY = `{
     description
   },
 
-
+  "websiteSettings": *[_type == "websiteSettings"] {
+    email,
+    contactNumber,
+    address,
+    "resume": resume.asset->url,
+    facebook,
+    instagram,
+    github,
+    linkedin,
+  }
 }`;
-
-// "websiteSettings": *[_type == "websiteSettings"] {
-//   email,
-//   contactNumber,
-//   address,
-//   "resume": resume.asset->url,
-//   facebook,
-//   instagram,
-//   github,
-//   linkedin,
-// }
 
 export default async function Home() {
   const {
@@ -95,13 +93,17 @@ export default async function Home() {
     experienceSection,
     certificateSection,
     contactSection,
+    websiteSettings,
   } = await sanityFetch<any>({
     query: PAGE_QUERY,
   });
 
   return (
     <main>
-      <Introduction heroSectionData={heroSection[0]} />
+      <Introduction
+        websiteSettings={websiteSettings[0]}
+        heroSectionData={heroSection[0]}
+      />
 
       <About aboutSectionData={aboutSection[0]} />
 
@@ -116,7 +118,10 @@ export default async function Home() {
 
       <Certificate certificateData={certificateSection[0]} />
 
-      <Contact contactData={contactSection[0]} />
+      <Contact
+        websiteSettings={websiteSettings[0]}
+        contactData={contactSection[0]}
+      />
     </main>
   );
 }
