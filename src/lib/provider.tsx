@@ -7,12 +7,20 @@ import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import { usePathname } from "next/navigation";
 import { ToastContainer } from "react-toastify";
+import { WebsiteSettings } from "../../type";
 
 import "react-toastify/dist/ReactToastify.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function Provider({ children }: { children: React.ReactNode }) {
+export default function Provider({
+  children,
+  websiteSettings,
+}: {
+  children: React.ReactNode;
+  websiteSettings: WebsiteSettings;
+}) {
+  const { logo, logoFooter, footerDescription } = websiteSettings;
   const pathName = usePathname();
   const isStudioPath = pathName.startsWith("/studio");
 
@@ -22,10 +30,10 @@ export default function Provider({ children }: { children: React.ReactNode }) {
       <SpeedInsights />
       <ToastContainer />
 
-      {!isStudioPath && <Header />}
+      {!isStudioPath && <Header logo={logo} />}
       {children}
       {!isStudioPath && <ScrollTop />}
-      {!isStudioPath && <Footer />}
+      {!isStudioPath && <Footer logoFooter={logoFooter} footerDescription={footerDescription as string} />}
     </>
   );
 }
