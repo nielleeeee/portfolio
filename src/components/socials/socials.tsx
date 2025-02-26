@@ -7,7 +7,8 @@ export default function Socials({
 }: {
   websiteSettings: WebsiteSettings;
 }) {
-  const { github, linkedin, instagram, facebook, resume } = websiteSettings;
+  const { github, linkedin, resume } = websiteSettings;
+  // instagram, facebook
 
   return (
     <div className="flex justify-center items-center w-max bg-white shadow-[0px_0px_15px_#00000027] px-6 py-3 md:px-8 md:py-4 rounded-[5em]">
@@ -52,7 +53,7 @@ export default function Socials({
         </svg>
       </Link>
 
-      <Link
+      {/* <Link
         href={facebook}
         target="_blank"
         className="flex justify-center items-center w-[36px] h-[38px] md:w-[50px] md:h-[50px] bg-[#3b5998] shadow-[0px_0px_4px_#00000027] transition-[0.3s] mx-1 sm:mx-2 my-0 rounded-[50%] hover:bg-[#f2f2f2] hover:shadow-[0px_0px_6px_3px_#00000027] group"
@@ -79,9 +80,9 @@ export default function Socials({
             ></path>
           </g>
         </svg>
-      </Link>
+      </Link> */}
 
-      <Link
+      {/* <Link
         href={instagram}
         target="_blank"
         className="flex justify-center items-center w-[36px] h-[38px] md:w-[50px] md:h-[50px] bg-[#c13584] shadow-[0px_0px_4px_#00000027] transition-[0.3s] mx-1 sm:mx-2 my-0 rounded-[50%] hover:bg-[#f2f2f2] hover:shadow-[0px_0px_6px_3px_#00000027] group"
@@ -111,7 +112,7 @@ export default function Socials({
             </g>
           </g>
         </svg>
-      </Link>
+      </Link> */}
 
       <Link
         href={resume as string}
