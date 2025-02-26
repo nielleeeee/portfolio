@@ -101,6 +101,7 @@ interface ContactSection {
 interface WebsiteSettings {
   _type: "websiteSettings";
   logo: Image | string;
+  logoFooter: Image | string;
   title: string;
   contactNumber: string;
   email: string;
