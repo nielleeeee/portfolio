@@ -1,8 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Image as ImageType } from "../../../type";
 
-export default function Footer() {
+interface FooterSectionProps {
+  logoFooter: ImageType | string;
+  footerDescription: string;
+}
+
+export default function Footer({
+  logoFooter,
+  footerDescription,
+}: FooterSectionProps) {
   const currYear = new Date().getFullYear();
 
   return (
@@ -13,9 +22,9 @@ export default function Footer() {
             <div className="flex justify-center text-teal-600 lg:justify-start">
               <Link href={"/"}>
                 <Image
-                  src={"/logo-footer.png"}
-                  width={1000}
-                  height={1000}
+                  src={logoFooter as string}
+                  width={400}
+                  height={400}
                   alt="logo"
                   className="max-w-full w-[200px] h-auto"
                 />
@@ -23,8 +32,7 @@ export default function Footer() {
             </div>
 
             <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-black lg:text-left">
-              Crafting Sleek Digital Experiences with a Dash of Simplicity and
-              Code Magic.
+              {footerDescription}
             </p>
           </div>
 
