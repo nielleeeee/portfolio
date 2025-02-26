@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Image as ImageType } from "../../../type";
 
 const navigationList = [
   { label: "Home", path: "#introduction" },
@@ -14,7 +15,7 @@ const navigationList = [
   { label: "Contact", path: "#contact" },
 ];
 
-export default function Header() {
+export default function Header({ logo }: { logo: ImageType | string }) {
   const [isActive, setIsActive] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -70,7 +71,7 @@ export default function Header() {
       <div id="logo">
         <Link href={"/"}>
           <Image
-            src={"/logo-header.png"}
+            src={logo as string}
             width={1000}
             height={1000}
             alt="logo"
@@ -99,7 +100,7 @@ export default function Header() {
 
         {/* Sidebar */}
         {isActive && (
-          <div className="fixed inset-0 h-screen w-full bg-primary z-20 flex justify-center items-center p-8 transform translate-x-0 transition-transform duration-300 ease-in-out"> 
+          <div className="fixed inset-0 h-screen w-full bg-primary z-20 flex justify-center items-center p-8 transform translate-x-0 transition-transform duration-300 ease-in-out">
             <ul className="text-2xl text-center flex flex-col gap-6">
               <NavigationItems />
             </ul>
