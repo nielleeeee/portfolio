@@ -15,6 +15,7 @@ const PAGE_QUERY = `{
     metaTags,
     footerDescription,
     "logo": logo.asset->url,
+    "logoFooter": logoFooter.asset->url,
   }
 }`;
 
@@ -49,15 +50,19 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { websiteSettings } = await sanityFetch<any>({
+    query: PAGE_QUERY,
+  });
+
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} bg-white scroll-smooth`}>
-        <Providers>{children}</Providers>
+        <Providers websiteSettings={websiteSettings[0]}>{children}</Providers>
       </body>
     </html>
   );
