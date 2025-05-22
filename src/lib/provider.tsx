@@ -7,7 +7,7 @@ import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import { usePathname } from "next/navigation";
 import { ToastContainer } from "react-toastify";
-import { PageViewTracker } from "@/components/pageTracker/pageTracker";
+// import { PageViewTracker } from "@/components/pageTracker/pageTracker";
 import { WebsiteSettings } from "../../type";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -31,7 +31,7 @@ export default function Provider({
       <SpeedInsights />
       <ToastContainer />
 
-      <PageViewTracker />
+      {/* <PageViewTracker /> */}
 
       {!isStudioPath && <Header logo={logo} />}
       {children}
