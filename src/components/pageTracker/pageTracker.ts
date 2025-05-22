@@ -10,7 +10,6 @@ const TRACKING_COOLDOWN_MS = 24 * 60 * 60 * 1000;
 
 export function PageViewTracker() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const lastTrackedUrlRef = useRef<string | null>(null);
 
   useEffect(() => {
@@ -62,7 +61,7 @@ export function PageViewTracker() {
     };
 
     trackPageView(currentUrl);
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   return null;
 }
