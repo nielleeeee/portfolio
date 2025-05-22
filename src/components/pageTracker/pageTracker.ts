@@ -14,8 +14,7 @@ export function PageViewTracker() {
   const lastTrackedUrlRef = useRef<string | null>(null);
 
   useEffect(() => {
-    const currentUrl =
-      pathname + (searchParams.toString() ? `?${searchParams.toString()}` : "");
+    const currentUrl = pathname;
 
     if (lastTrackedUrlRef.current === currentUrl) {
       return;
