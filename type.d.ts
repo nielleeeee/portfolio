@@ -116,3 +116,10 @@ interface WebsiteSettings {
   metaDescription: string;
   metaTags: string[];
 }
+
+interface PageData {
+  url: string;
+  referrer: string;
+  userAgent: string;
+  timestamp: string;
+}
